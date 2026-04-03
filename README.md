@@ -51,7 +51,7 @@ Everything you build goes inside here.
 
 ## File-Level Explanation
 
-*   **`main.jsx`**: The entry point. It grabs the root element in `index.html` and renders the `<App />` component. Keep this file clean.
+*   **`main.jsx`**: The entry point. It grabs the root element in `index.html` and renders the `Linkpp />` component. Keep this file clean.
 *   **`App.jsx`**: The root component. Usually sets up providers (like routing or context) and renders the main layout.
 *   **`App.css` / `index.css`**: Global styles. `index.css` is for root-level resets and body styles. Use component-specific CSS or modules for individual components instead of filling these with everything.
 
