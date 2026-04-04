@@ -1,0 +1,71 @@
+.domains-container {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.domains-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) { 
+  .domains-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } 
+}
+@media (min-width: 1024px) { 
+  .domains-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } 
+}
+
+.domain-card {
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: rgba(19, 19, 19, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.domain-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.domain-card.highlight {
+  border-color: rgba(255, 30, 30, 0.4);
+  box-shadow: inset 0 0 20px rgba(255, 30, 30, 0.05);
+}
+
+@media (min-width: 1024px) {
+  .domain-card.highlight {
+    grid-column: span 2 / span 2;
+  }
+}
+
+.domain-card.highlight:hover {
+  box-shadow: 0 0 30px rgba(255, 30, 30, 0.2);
+}
+
+.domain-icon {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #d1d5db;
+}
+
+.domain-card.highlight .domain-icon {
+  background-color: rgba(255, 30, 30, 0.1);
+  color: #ff1e1e;
+}

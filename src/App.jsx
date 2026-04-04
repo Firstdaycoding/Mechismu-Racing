@@ -1,21 +1,45 @@
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "motion/react";
+import { useEffect, useState } from "react";
 
-import { BrowserRouter , Routes, Route } from 'react-router-dom';
+import Layout from "./layout/Layout";
+import Preloader from "./components/Preloader/Preloader.jsx";
 
-import Preloader from './components/Preloader/Preloader.jsx';
-import './App.css';
+import Home from "./pages/Home.jsx";
+import Contact from "./pages/Contact.jsx";
+import About from "./pages/about/About.jsx";
 
-import Contact from './pages/Contact.jsx'
-import Home from './pages/Home.jsx'
+import "./App.css";
+
+function AnimatedRoutes() {
+    const location = useLocation();
+
+    return (
+        <AnimatePresence mode="wait">
+            <Layout key={location.pathname}>
+                <Routes location={location}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/about" element={<About />} />
+                </Routes>
+            </Layout>
+        </AnimatePresence>
+    );
+}
 
 function App() {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setLoading(false), 2000);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/Contact' element={<Contact />} />
-            </Routes>
+            {loading && <Preloader />}
+            {!loading && <AnimatedRoutes />}
         </BrowserRouter>
-        <Preloader />
     );
 }
 

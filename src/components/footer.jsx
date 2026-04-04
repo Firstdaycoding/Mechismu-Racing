@@ -1,7 +1,7 @@
 import './footer.css'
 import { Link } from 'react-router-dom';
-import Logo from '../assets/images/logo.png'
-import { InstagramIcon, LinkedInIcon, YouTubeIcon } from '../assets/svj.jsx';
+import Logo from '@/assets/images/logo.png'
+import { InstagramIcon, LinkedInIcon, YouTubeIcon } from '@/assets/svj.jsx';
 
 
 export default function Footer() {
