@@ -1,67 +1,132 @@
-.achievements-container {
-  width: 100%;
+/* ===== SECTION BASE ===== */
+.achievements {
   position: relative;
-  z-index: 10;
-  max-width: 80rem;
-  margin: 0 auto;
-}
-
-.achievements-box {
-  width: 100%;
-  background: linear-gradient(to bottom right, #1a1a1a, #0a0a0a);
-  border-radius: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 3rem;
-  text-align: center;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  position: relative;
+  padding: 120px 20px;
+  background: #050505;
   overflow: hidden;
 }
 
-.achievements-divider {
+/* ===== RED AMBIENT BACKGROUND ===== */
+.achievements-bg {
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(255, 30, 30, 0.5), transparent);
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%,
+      rgba(255, 0, 0, 0.25),
+      transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.15), transparent 50%);
+  filter: blur(80px);
+  z-index: 0;
 }
 
-.achievements-title {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: #ff1e1e;
+/* ===== GLASS CARD ===== */
+.glass-card {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 40px;
+
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+
+  box-shadow:
+    0 0 40px rgba(255, 0, 0, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.02);
+
+  text-align: center;
+}
+
+/* ===== MINI TAG ===== */
+.mini-tag {
+  font-size: 12px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
+  color: rgba(255, 60, 60, 0.8);
+  margin-bottom: 20px;
+}
+
+/* ===== MAIN HEADING ===== */
+.main-heading {
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #e5e5e5;
+}
+
+/* ===== GLOW TEXT ===== */
+.glow {
+  color: #ff2e2e;
+  text-shadow:
+    0 0 10px rgba(255, 0, 0, 0.8),
+    0 0 25px rgba(255, 0, 0, 0.6),
+    0 0 50px rgba(255, 0, 0, 0.4);
+}
+
+/* ===== SUBTEXT ===== */
+.sub-text {
+  margin-top: 20px;
+  color: #9ca3af;
+  max-width: 600px;
+  margin-inline: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ===== MAIN RESULT ===== */
+.highlight-block {
+  margin-top: 50px;
+}
+
+.highlight-block h3 {
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.event {
+  display: inline-block;
+  margin-top: 10px;
+  color: #ff3b3b;
   letter-spacing: 0.2em;
-  margin-bottom: 1rem;
+  font-size: 12px;
 }
 
-@media (min-width: 768px) {
-  .achievements-title {
-    font-size: 1rem;
+/* ===== STATS ===== */
+.stats {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 40px;
+}
+
+/* ===== INDIVIDUAL STAT ===== */
+.stat h4 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.stat p {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #6b7280;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .stats {
+    flex-direction: column;
+    gap: 30px;
   }
-}
 
-.achievements-highlight {
-  color: transparent;
-  background-clip: text;
-  background-image: linear-gradient(to right, #ffffff, #6b7280);
-}
-
-.achievements-stats-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  max-width: 48rem;
-  margin: 0 auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 3rem;
-}
-
-@media (min-width: 768px) {
-  .achievements-stats-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 3rem;
+  .glass-card {
+    padding: 40px 20px;
   }
 }
