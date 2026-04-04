@@ -55,7 +55,12 @@ function Navbar() {
       {/* MOBILE */}
       <div className={`mobile-glass ${isMenuOpen ? 'open' : ''}`}>
         {links.map((item, i) => (
-          <NavLink key={i} to={item.path} className="mob-item">
+          <NavLink
+            key={i}
+            to={item.path}
+            className="mob-item"
+            onClick={() => setIsMenuOpen(false)} // <-- FIX: Close menu on click
+          >
             {item.label}
           </NavLink>
         ))}
