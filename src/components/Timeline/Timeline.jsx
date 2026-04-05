@@ -79,7 +79,7 @@ export default function Timeline() {
   return (
     <section ref={sectionRef} className="timeline-section">
       <div className="timeline-svg-container">
-        <svg className="w-full h-full" viewBox="0 0 1000 2500" preserveAspectRatio="none">
+        <svg viewBox="0 0 1000 2500" preserveAspectRatio="none">
           <path
             className="timeline-path"
             d="M 500,0 C 850,300 850,700 500,1250 C 150,1800 150,2200 500,2500"

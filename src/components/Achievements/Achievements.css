@@ -9,201 +9,32 @@
   --border: rgba(255, 255, 255, 0.14);
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Oxanium", sans-serif;
-  background: #050505;
-  /* Sets a dark base for the whole page */
-}
-
-a {
-  text-decoration: none;
-}
-
-
-/* =========================================
-   NAVIGATION BAR
-   ========================================= */
-.nav-glass {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: linear-gradient(180deg, rgba(25, 0, 0, 0.85), rgba(0, 0, 0, 0.65));
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-.nav-inner {
-  max-width: 1400px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 32px;
-}
-
-.logo-wrap img {
-  height: 48px;
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.15));
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 12px;
-}
-
-.nav-item {
-  padding: 10px 20px;
-  border-radius: 14px;
-  font-family: "Oxanium", sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.65);
-  position: relative;
-  transition: all 0.25s ease;
-  background: transparent;
-}
-
-.nav-item::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.08), transparent 60%);
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.nav-item:hover {
-  color: white;
-  background: var(--glass-bg);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.nav-item:hover::before {
-  opacity: 1;
-}
-
-.nav-item.active {
-  color: white;
-  background: rgba(177, 18, 23, 0.18);
-  box-shadow: 0 0 18px var(--red-glow), inset 0 0 12px rgba(177, 18, 23, 0.25);
-  border: 1px solid rgba(177, 18, 23, 0.4);
-}
-
-.nav-item.active::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  box-shadow: 0 0 12px var(--red-glow);
-  opacity: 0.6;
-}
-
-/* --- Hamburger Menu Icon & Animation --- */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 18px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 3000;
-  /* Keeps it clickable above the mobile menu */
-}
-
-.hamburger span {
-  width: 100%;
-  height: 2px;
-  background: white;
-  transition: all 0.3s ease-in-out;
-  border-radius: 2px;
-}
-
-/* Hamburger to 'X' Animation */
-.hamburger.open span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.open span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
-/* --- Mobile Menu Overlay --- */
-.mobile-glass {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  background: linear-gradient(180deg, rgba(25, 0, 0, 0.95), rgba(0, 0, 0, 0.95));
-  backdrop-filter: blur(25px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.3s;
-}
-
-.mobile-glass.open {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.mob-item {
-  font-size: 34px;
-  font-family: "Oxanium", sans-serif;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.3);
-  transition: 0.2s;
-}
-
-.mob-item:hover {
-  color: white;
-  transform: scale(1.05);
-}
-
-@media (max-width: 900px) {
-  .nav-links {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-}
-
-
 /* =========================================
    ACHIEVEMENTS SECTION
    ========================================= */
 .achievements {
   position: relative;
-  padding: 120px 20px;
+  padding: 60px 16px;
   background: #050505;
   overflow: hidden;
+}
+
+@media (min-width: 480px) {
+  .achievements {
+    padding: 80px 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .achievements {
+    padding: 100px 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .achievements {
+    padding: 120px 20px;
+  }
 }
 
 .achievements-bg {
@@ -219,26 +50,62 @@ a {
   position: relative;
   z-index: 2;
   max-width: 900px;
+  width: 100%;
   margin: auto;
-  padding: 60px 40px;
+  padding: 32px 16px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
+  border-radius: 18px;
   box-shadow: 0 0 40px rgba(255, 0, 0, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.02);
   text-align: center;
 }
 
+@media (min-width: 480px) {
+  .glass-card {
+    padding: 40px 20px;
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .glass-card {
+    padding: 50px 32px;
+    border-radius: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .glass-card {
+    padding: 60px 40px;
+  }
+}
+
 .mini-tag {
-  font-size: 12px;
-  letter-spacing: 0.3em;
+  font-size: 10px;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: rgba(255, 60, 60, 0.8);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 480px) {
+  .mini-tag {
+    font-size: 11px;
+    margin-bottom: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mini-tag {
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    margin-bottom: 20px;
+  }
 }
 
 .main-heading {
-  font-size: clamp(40px, 6vw, 70px);
+  font-size: clamp(28px, 6vw, 70px);
   font-weight: 900;
   line-height: 1.1;
   color: #e5e5e5;
@@ -253,20 +120,41 @@ a {
 }
 
 .sub-text {
-  margin-top: 20px;
+  margin-top: 16px;
   color: #9ca3af;
-  max-width: 600px;
+  max-width: 100%;
   margin-inline: auto;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
 }
 
+@media (min-width: 480px) {
+  .sub-text {
+    max-width: 500px;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 768px) {
+  .sub-text {
+    margin-top: 20px;
+    max-width: 600px;
+    font-size: 14px;
+  }
+}
+
 .highlight-block {
-  margin-top: 50px;
+  margin-top: 36px;
+}
+
+@media (min-width: 768px) {
+  .highlight-block {
+    margin-top: 50px;
+  }
 }
 
 .highlight-block h3 {
-  font-size: clamp(32px, 5vw, 60px);
+  font-size: clamp(24px, 5vw, 60px);
   font-weight: 800;
   color: #ffffff;
   margin: 0;
@@ -274,58 +162,77 @@ a {
 
 .event {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 8px;
   color: #ff3b3b;
-  letter-spacing: 0.2em;
-  font-size: 12px;
+  letter-spacing: 0.15em;
+  font-size: 11px;
 }
 
+@media (min-width: 768px) {
+  .event {
+    margin-top: 10px;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+  }
+}
+
+/* ===== STATS ===== */
 .stats {
-  margin-top: 60px;
+  margin-top: 40px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: clamp(40px, 15vw, 200px);
+  gap: 32px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 40px;
+  padding-top: 32px;
+}
+
+@media (min-width: 480px) {
+  .stats {
+    flex-direction: row;
+    gap: clamp(40px, 10vw, 120px);
+  }
+}
+
+@media (min-width: 768px) {
+  .stats {
+    margin-top: 60px;
+    padding-top: 40px;
+    gap: clamp(60px, 15vw, 200px);
+  }
 }
 
 .stat h4 {
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 800;
   color: #ffffff;
   margin: 0;
 }
 
+@media (min-width: 480px) {
+  .stat h4 {
+    font-size: 42px;
+  }
+}
+
+@media (min-width: 768px) {
+  .stat h4 {
+    font-size: 48px;
+  }
+}
+
 .stat p {
-  font-size: 12px;
-  letter-spacing: 0.2em;
+  font-size: 11px;
+  letter-spacing: 0.18em;
   color: #6b7280;
-  margin-top: 8px;
+  margin-top: 6px;
   text-transform: uppercase;
 }
 
-/* --- Achievements Responsive --- */
-@media (max-width: 768px) {
-  .achievements {
-    padding: 80px 16px;
-  }
-
-  .stats {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .glass-card {
-    padding: 40px 20px;
-  }
-}
-
-@media (max-width: 400px) {
-  .stat h4 {
-    font-size: 38px;
-  }
-
-  .mini-tag {
-    font-size: 10px;
+@media (min-width: 768px) {
+  .stat p {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    margin-top: 8px;
   }
 }
