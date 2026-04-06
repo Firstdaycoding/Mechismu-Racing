@@ -2,19 +2,31 @@
 
 .filter-bar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: stretch; /* Allows search input to span 100% */
   gap: 20px;
-  flex-wrap: wrap;
+  width: 100%;
 }
 
+/* Category Tabs wrapper */
 .filter-bar__buttons {
   display: flex;
   gap: 8px;
-  flex-wrap: wrap;
+  width: 100%;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  padding-bottom: 4px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
+}
+
+.filter-bar__buttons::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 .filter-bar__btn {
+  flex-shrink: 0; /* no shrinking */
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
@@ -22,7 +34,7 @@
   letter-spacing: 0.14em;
   padding: 8px 18px;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 3px;
+  border-radius: 0px; /* matched to technical theme */
   background: rgba(28, 27, 27, 0.5);
   color: rgba(229, 226, 225, 0.4);
   cursor: pointer;
@@ -48,11 +60,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 16px;
+  padding: 10px 16px;
   background: rgba(10, 10, 10, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 4px;
-  min-width: 220px;
+  border-radius: 0px; /* matched to technical theme */
+  width: 100%;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -97,29 +109,4 @@
 
 .filter-bar__search-clear:hover {
   color: #FF544A;
-}
-
-/* ---- Responsive ---- */
-@media (max-width: 768px) {
-  .filter-bar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .filter-bar__search {
-    min-width: unset;
-  }
-
-  .filter-bar__buttons {
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 4px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .filter-bar__buttons::-webkit-scrollbar {
-    display: none;
-  }
 }

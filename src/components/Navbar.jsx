@@ -11,7 +11,7 @@ function Navbar() {
     { path: "/About", label: "About" },
     { path: "/Cars", label: "Cars" },
     { path: "/Team", label: "Team" },
-    { path: "/Achievements", label: "Wins" },
+    { path: "/wins", label: "Wins" },
     { path: "/Sponsors", label: "Sponsors" },
     { path: "/Contact", label: "Contact" }
   ]

@@ -24,7 +24,7 @@ const loadYearData = async (year) => {
   const results = {};
   for (const section of SECTION_CONFIG) {
     try {
-      const module = await import(`../../data/${year}/${section.file}.json`);
+      const module = await import(`../../data/Member/${year}/${section.file}.json`);
       results[section.key] = module.default || module;
     } catch (e) {
       results[section.key] = [];

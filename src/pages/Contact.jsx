@@ -1,10 +1,6 @@
-import Navbar from '../components/Navbar.jsx'
-import Footer from '../components/footer.jsx'
+import React from 'react';
+import ContactPage from '../components/Contact/ContactPage';
 
 export default function Contact() {
-    return (
-        <>
-            <Navbar />
-        </>
-    )
+  return <ContactPage />;
 }
