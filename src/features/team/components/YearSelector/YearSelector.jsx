@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import './YearSelector.css';
 
+// ===== COMPONENT =====
 const YearSelector = memo(({ years, activeYear, onYearChange }) => {
   return (
     <div className="year-selector">

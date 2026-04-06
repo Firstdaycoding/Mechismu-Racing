@@ -1,62 +1,48 @@
-import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+/**
+ * File: TeamPage.jsx
+ * Purpose: Container and logic for the Team feature
+ * Notes:
+ * - Handles dynamic JSON loading for roster seasons
+ * - Orchestrates FilterBar and YearSelector states
+ * - Injects GSAP animations
+ */
+
+// ===== IMPORTS =====
+// React
+import React, { useRef, useEffect } from 'react';
+
+// Third-party
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import YearSelector from './YearSelector';
-import FilterBar from './FilterBar';
-import Section from './Section';
+
+// Internal
+import { YearSelector, FilterBar, TeamSection } from '../components';
+import { useTeamFilter } from '../hooks/useTeamFilter';
 import './TeamPage.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AVAILABLE_YEARS = [2025, 2024];
 
-const SECTION_CONFIG = [
-  { key: 'leadership', label: 'Leadership', file: 'leadership' },
-  { key: 'vd', label: 'Vehicle Dynamics', file: 'vd' },
-  { key: 'hv', label: 'High Voltage', file: 'hv' },
-  { key: 'lv', label: 'Low Voltage', file: 'lv' },
-  { key: 'ops', label: 'Operations', file: 'ops' },
-  { key: 'structures', label: 'Structures', file: 'structures' },
-];
 
-// Dynamic JSON loader
-const loadYearData = async (year) => {
-  const results = {};
-  for (const section of SECTION_CONFIG) {
-    try {
-      const module = await import(`../../data/Member/${year}/${section.file}.json`);
-      results[section.key] = module.default || module;
-    } catch (e) {
-      results[section.key] = [];
-    }
-  }
-  return results;
-};
+// ===== COMPONENT =====
+const TeamPage = () => {
+  // ===== HOOKS & STATE =====
+  const {
+    activeYear,
+    activeFilter,
+    setActiveFilter,
+    searchQuery,
+    setSearchQuery,
+    isLoading,
+    filteredSections,
+    totalMembers,
+    changeYear,
+    completeYearChange
+  } = useTeamFilter(2025);
 
-export default function TeamPage() {
-  const [activeYear, setActiveYear] = useState(2025);
-  const [activeFilter, setActiveFilter] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [teamData, setTeamData] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const contentRef = useRef(null);
   const heroRef = useRef(null);
-
-  // Load data for the active year
-  useEffect(() => {
-    let cancelled = false;
-    setIsLoading(true);
-
-    loadYearData(activeYear).then((data) => {
-      if (!cancelled) {
-        setTeamData(data);
-        setIsLoading(false);
-      }
-    });
-
-    return () => { cancelled = true; };
-  }, [activeYear]);
 
   // Hero GSAP animation
   useEffect(() => {
@@ -88,57 +74,29 @@ export default function TeamPage() {
     return () => ctx.revert();
   }, []);
 
+  // ===== HANDLERS =====
   // Year change transition
-  const handleYearChange = useCallback((year) => {
-    if (year === activeYear) return;
-    setIsTransitioning(true);
-
+  const handleYearChange = (year) => {
+    if (!changeYear(year)) return;
+    
     gsap.to(contentRef.current, {
       opacity: 0,
       y: 20,
       duration: 0.3,
       ease: 'power2.in',
       onComplete: () => {
-        setActiveYear(year);
-        setIsTransitioning(false);
+        completeYearChange(year);
         gsap.fromTo(
           contentRef.current,
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', delay: 0.1 }
         );
-        // Refresh ScrollTrigger for new content
         setTimeout(() => ScrollTrigger.refresh(), 200);
       },
     });
-  }, [activeYear]);
+  };
 
-  // Filter + search
-  const filteredSections = useMemo(() => {
-    const query = searchQuery.toLowerCase().trim();
-
-    return SECTION_CONFIG.map((section) => {
-      if (activeFilter !== 'all' && activeFilter !== section.key) {
-        return { ...section, members: [] };
-      }
-
-      let members = teamData[section.key] || [];
-
-      if (query) {
-        members = members.filter(
-          (m) =>
-            m.name.toLowerCase().includes(query) ||
-            m.role.toLowerCase().includes(query)
-        );
-      }
-
-      return { ...section, members };
-    }).filter((s) => s.members.length > 0);
-  }, [teamData, activeFilter, searchQuery]);
-
-  const totalMembers = useMemo(() => {
-    return Object.values(teamData).reduce((sum, arr) => sum + (arr?.length || 0), 0);
-  }, [teamData]);
-
+  // ===== RENDER =====
   return (
     <div className="team-page">
       {/* Atmospheric background effects */}
@@ -189,7 +147,7 @@ export default function TeamPage() {
             </div>
           ) : (
             filteredSections.map((section) => (
-              <Section
+              <TeamSection
                 key={section.key}
                 id={`section-${section.key}`}
                 title={section.label}
@@ -201,4 +159,6 @@ export default function TeamPage() {
       </div>
     </div>
   );
-}
+};
+
+export default React.memo(TeamPage);

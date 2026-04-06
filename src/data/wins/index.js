@@ -1,3 +1,14 @@
+/**
+ * File: index.js (Wins Data)
+ * Purpose: Aggregation and structural modeling for yearly wins
+ * 
+ * Data Structure Expected (e.g., 2025.js):
+ * - year: Number
+ * - primaryHighlights: Array of { label, value }
+ * - milestones: Array of strings
+ * - competitions: Array of { name, id, results: [ { label, value } ] }
+ */
+
 import { year2025 } from "./2025";
 import { year2024 } from "./2024";
 import { year2023 } from "./2023";

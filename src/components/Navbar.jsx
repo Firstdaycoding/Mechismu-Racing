@@ -1,10 +1,26 @@
-import './navbar.css'
-import logo from '@/assets/images/logo.png'
-import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+/**
+ * File: Navbar.jsx
+ * Purpose: Main navigation bar
+ * Notes:
+ * - Handles routing links and active states
+ * - Includes responsive mobile glass menu
+ */
 
+// ===== IMPORTS =====
+// React
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+
+// Internal
+import logo from '@/assets/images/logo.png';
+import './Navbar.css';
+
+// ===== COMPONENT =====
 function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  // ===== STATE =====
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // ===== CONFIG =====
 
   const links = [
     { path: "/", label: "Home" },
@@ -14,8 +30,9 @@ function Navbar() {
     { path: "/wins", label: "Wins" },
     { path: "/Sponsors", label: "Sponsors" },
     { path: "/Contact", label: "Contact" }
-  ]
+  ];
 
+  // ===== RENDER =====
   return (
     <>
       <nav className="nav-glass">

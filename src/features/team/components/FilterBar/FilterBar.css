@@ -1,14 +1,12 @@
-/* ===== FILTER BAR — KINETIC MONOLITH ===== */
-
+/* ===== FILTER BAR ===== */
 .filter-bar {
   display: flex;
   flex-direction: column;
-  align-items: stretch; /* Allows search input to span 100% */
+  align-items: stretch;
   gap: 20px;
   width: 100%;
 }
 
-/* Category Tabs wrapper */
 .filter-bar__buttons {
   display: flex;
   gap: 8px;
@@ -16,17 +14,17 @@
   overflow-x: auto;
   flex-wrap: nowrap;
   padding-bottom: 4px;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   scroll-behavior: smooth;
 }
 
 .filter-bar__buttons::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
+  display: none;
 }
 
 .filter-bar__btn {
-  flex-shrink: 0; /* no shrinking */
+  flex-shrink: 0;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
@@ -34,7 +32,7 @@
   letter-spacing: 0.14em;
   padding: 8px 18px;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 0px; /* matched to technical theme */
+  border-radius: 0px;
   background: rgba(28, 27, 27, 0.5);
   color: rgba(229, 226, 225, 0.4);
   cursor: pointer;
@@ -55,7 +53,6 @@
   box-shadow: 0 0 14px rgba(255, 84, 74, 0.1);
 }
 
-/* ---- Search ---- */
 .filter-bar__search {
   display: flex;
   align-items: center;
@@ -63,7 +60,7 @@
   padding: 10px 16px;
   background: rgba(10, 10, 10, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 0px; /* matched to technical theme */
+  border-radius: 0px;
   width: 100%;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }

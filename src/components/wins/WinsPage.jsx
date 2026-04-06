@@ -22,6 +22,16 @@ export default function WinsPage() {
       </div>
 
       <div className="wins-container">
+        {/* HERO */}
+        <header className="wins-hero">
+          <span className="wins-hero__tag">// MECHISMU RACING — TRACK RECORD</span>
+          <h1 className="wins-hero__title">OUR WINS</h1>
+          <p className="wins-hero__subtitle">
+            A LEGACY OF ENGINEERING EXCELLENCE AND HIGH-PERFORMANCE DOMINANCE
+          </p>
+          <div className="wins-hero__line" />
+        </header>
+
         <YearFilter 
           years={years} 
           activeYear={activeYear} 

@@ -8,7 +8,7 @@ import Preloader from "./components/Preloader/Preloader.jsx";
 import Home from "./pages/Home.jsx";
 import Contact from "./pages/Contact.jsx";
 import About from "./pages/about/About.jsx";
-import Team from "./pages/Team.jsx";
+import { TeamPage } from "./features/team";
 import Sponsors from "./pages/Sponsors.jsx";
 import Cars from "./pages/Cars.jsx";
 import Wins from "./pages/Wins.jsx";
@@ -25,7 +25,7 @@ function AnimatedRoutes() {
                     <Route path="/" element={<Home />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/team" element={<Team />} />
+                    <Route path="/team" element={<TeamPage />} />
                     <Route path="/sponsors" element={<Sponsors />} />
                     <Route path="/cars" element={<Cars />} />
                     <Route path="/wins" element={<Wins />} />

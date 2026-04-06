@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
-import Footer from "../components/footer.jsx";
+import Footer from "../components/Footer.jsx";
 import "./Layout.css";
 
 export default function Layout({ children }) {

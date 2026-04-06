@@ -1,8 +1,7 @@
-/* ===== TEAM PAGE — KINETIC MONOLITH ===== */
-
+/* ===== TEAM FEATURE — KINETIC MONOLITH ===== */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* ---- Page Root ---- */
+/* ── 1. Page Root ── */
 .team-page {
   position: relative;
   min-height: 100vh;
@@ -11,7 +10,7 @@
   overflow: hidden;
 }
 
-/* ---- Atmospheric Background ---- */
+/* ── 2. Atmospheric BG ── */
 .team-page__bg {
   position: fixed;
   inset: 0;
@@ -65,7 +64,7 @@
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 0%, transparent 100%);
 }
 
-/* ---- Container ---- */
+/* ── 3. Container & Hero ── */
 .team-page__container {
   position: relative;
   z-index: 1;
@@ -74,7 +73,6 @@
   padding: 80px 40px 100px;
 }
 
-/* ---- HERO ---- */
 .team-hero {
   text-align: center;
   margin-bottom: 64px;
@@ -128,7 +126,6 @@
   box-shadow: 0 0 12px rgba(255, 84, 74, 0.4);
 }
 
-/* ---- Controls ---- */
 .team-controls {
   display: flex;
   flex-direction: column;
@@ -137,12 +134,11 @@
   opacity: 0;
 }
 
-/* ---- Content ---- */
 .team-content {
   min-height: 300px;
 }
 
-/* ---- Loading ---- */
+/* ── 4. Loading & Empty ── */
 .team-loading {
   display: flex;
   flex-direction: column;
@@ -174,7 +170,6 @@
   letter-spacing: 0.2em;
 }
 
-/* ---- Empty State ---- */
 .team-empty {
   display: flex;
   flex-direction: column;
@@ -209,26 +204,22 @@
   letter-spacing: 0.1em;
 }
 
-/* ---- Responsive ---- */
+/* ── 5. Responsive Page Adjustments ── */
 @media (max-width: 768px) {
   .team-page__container {
     padding: 60px 20px 80px;
   }
-
   .team-hero {
     margin-bottom: 48px;
   }
-
   .team-hero__tag {
     font-size: 0.6rem;
     letter-spacing: 0.2em;
   }
-
   .team-hero__subtitle {
     font-size: 0.7rem;
     letter-spacing: 0.15em;
   }
-
   .team-controls {
     margin-bottom: 40px;
   }

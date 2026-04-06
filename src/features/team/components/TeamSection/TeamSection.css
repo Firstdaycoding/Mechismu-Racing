@@ -1,5 +1,4 @@
-/* ===== TEAM SECTION — KINETIC MONOLITH ===== */
-
+/* ===== TEAM SECTION ===== */
 .team-section {
   margin-bottom: 64px;
 }
@@ -41,14 +40,12 @@
   margin-left: auto;
 }
 
-/* ---- Grid ---- */
 .team-section__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
-/* ---- Responsive ---- */
 @media (max-width: 1200px) {
   .team-section__grid {
     grid-template-columns: repeat(3, 1fr);
@@ -67,11 +64,9 @@
     grid-template-columns: 1fr;
     gap: 18px;
   }
-
   .team-section__title {
     font-size: 1.1rem;
   }
-
   .team-section {
     margin-bottom: 48px;
   }

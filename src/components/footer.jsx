@@ -1,10 +1,23 @@
-import './footer.css'
+/**
+ * File: Footer.jsx
+ * Purpose: Global footer navigation
+ * Notes:
+ * - Provides brand info and links
+ * - Houses social connectivity paths
+ */
+
+// ===== IMPORTS =====
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '@/assets/images/logo.png'
+
+// Internal
+import Logo from '@/assets/images/logo.png';
 import { InstagramIcon, LinkedInIcon, YouTubeIcon } from '@/assets/svj.jsx';
-
-
+import './Footer.css';
+// ===== COMPONENT =====
 export default function Footer() {
+  
+  // ===== RENDER =====
   return (
     <footer>
       <div className="footer-inner">

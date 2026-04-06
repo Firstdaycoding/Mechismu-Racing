@@ -70,6 +70,56 @@
   padding: 40px 20px;
 }
 
+/* ── HERO SECTION ── */
+.wins-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.wins-hero__tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: rgba(229, 226, 225, 0.28);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  margin-bottom: 24px;
+}
+
+.wins-hero__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.8rem, 7.5vw, 6rem);
+  font-weight: 700;
+  color: #E5E2E1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 0.95;
+  margin: 0 0 18px;
+  text-shadow:
+    0 0 40px rgba(255, 84, 73, 0.3),
+    0 0 80px rgba(255, 84, 73, 0.15),
+    0 0 120px rgba(255, 84, 73, 0.1);
+}
+
+.wins-hero__subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(229, 226, 225, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin: 0 0 28px;
+}
+
+.wins-hero__line {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff5449, transparent);
+  margin: 0 auto;
+  box-shadow: 0 0 12px rgba(255, 84, 73, 0.5);
+}
+
 /* ── YEAR FILTER CONTROL ── */
 .wins-filter {
   display: flex;

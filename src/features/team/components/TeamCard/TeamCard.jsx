@@ -1,6 +1,7 @@
 import React, { memo, useRef, useState } from 'react';
 import './TeamCard.css';
 
+// ===== COMPONENT =====
 const TeamCard = memo(({ member }) => {
   const cardRef = useRef(null);
   const [imgLoaded, setImgLoaded] = useState(false);

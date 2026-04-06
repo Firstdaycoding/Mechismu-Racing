@@ -1,12 +1,15 @@
+// ===== IMPORTS =====
 import React, { memo, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import TeamCard from './TeamCard';
-import './Section.css';
+import TeamCard from '../TeamCard/TeamCard';
+import './TeamSection.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Section = memo(({ title, members, id }) => {
+// ===== COMPONENT =====
+
+const TeamSection = ({ title, members, id }) => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const gridRef = useRef(null);
@@ -73,8 +76,9 @@ const Section = memo(({ title, members, id }) => {
       </div>
     </section>
   );
-});
+};
 
-Section.displayName = 'Section';
+TeamSection.displayName = 'TeamSection';
 
-export default Section;
+
+export default React.memo(TeamSection);

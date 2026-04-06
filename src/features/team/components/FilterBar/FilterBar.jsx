@@ -1,6 +1,7 @@
 import React, { memo, useState, useRef, useEffect } from 'react';
 import './FilterBar.css';
 
+// ===== COMPONENT =====
 const FILTERS = [
   { key: 'all', label: 'ALL' },
   { key: 'leadership', label: 'LEADERSHIP' },

@@ -1,5 +1,4 @@
-/* ===== YEAR SELECTOR — KINETIC MONOLITH ===== */
-
+/* ===== YEAR SELECTOR ===== */
 .year-selector {
   display: flex;
   gap: 10px;
@@ -8,12 +7,12 @@
   flex-wrap: nowrap;
   padding-bottom: 4px;
   scroll-behavior: smooth;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .year-selector::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
+  display: none;
 }
 
 .year-selector__btn {
@@ -25,7 +24,7 @@
   letter-spacing: 0.12em;
   padding: 10px 24px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 0px; /* matched to technical theme */
+  border-radius: 0px;
   background: rgba(28, 27, 27, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
