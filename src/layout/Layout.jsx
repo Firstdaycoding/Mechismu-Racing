@@ -1,7 +1,11 @@
 import { useLocation } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import "@/layout/Layout.css";
+import { Outlet } from "react-router-dom";
+
+// Components
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer"; // ← requires rename
+
+import "./Layout.css";
 
 export default function Layout({ children }) {
     const location = useLocation();

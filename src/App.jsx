@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "motion/react";
-import React, { useEffect, useState, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Layout from "../src/layout/Layout.jsx";
+// Layout
+import Layout from "./layout/Layout";
 
+// UI
 import PageLoader from "./components/ui/PageLoader/PageLoader";
 
 import "../src/App.css";
