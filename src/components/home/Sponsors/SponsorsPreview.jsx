@@ -1,7 +1,7 @@
 
 import SectionWrapper from '@/components/home/common/SectionWrapper';
 import CTAButton from '@/components/home/common/CTAButton';
-import '@/components/home/sponsors/sponsors.css';
+import '@/components/home/Sponsors/sponsors.css';
 
 const SPONSORS = [
   { name: 'Tata Motors', logo: '/sponser/tata.png', tier: 'PLATINUM' },

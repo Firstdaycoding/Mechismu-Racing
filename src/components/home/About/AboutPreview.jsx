@@ -1,7 +1,7 @@
 
 import SectionWrapper from '@/components/home/common/SectionWrapper';
 import CTAButton from '@/components/home/common/CTAButton';
-import '@/components/home/about/about.css';
+import '@/components/home/About/about.css';
 
 export default function AboutPreview() {
   return (

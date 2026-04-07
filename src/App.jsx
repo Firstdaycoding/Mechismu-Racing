@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Layout
-import Layout from "./layout/Layout";
+import Layout from "./layout/Layout.jsx";
 
 // UI
-import PageLoader from "./components/ui/PageLoader/PageLoader";
+import PageLoader from "./components/ui/PageLoader/PageLoader.jsx";
 
 import "../src/App.css";
 

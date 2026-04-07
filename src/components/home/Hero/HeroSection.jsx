@@ -1,6 +1,6 @@
 
 import CTAButton from '@/components/home/common/CTAButton';
-import '@/components/home/hero/hero.css';
+import '@/components/home/Hero/hero.css';
 
 export default function HeroSection() {
   return (

@@ -1,7 +1,7 @@
 
 import SectionWrapper from '@/components/home/common/SectionWrapper';
 import CTAButton from '@/components/home/common/CTAButton';
-import '@/components/home/team/team.css';
+import '@/components/home/Team/team.css';
 
 const LEADERS = [
   {
