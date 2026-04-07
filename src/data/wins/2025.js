@@ -3,37 +3,22 @@ export const year2025 = {
 
   competitions: [
     {
-      name: "FS_AUSTRIA",
-      id: "FSAA_25",
+      name: "FORMULA_BHARAT_EV",
+      id: "FB_EV_25",
       results: {
-        overall: "02/45",
-        bpp: "1ST",
-        statics: "142.5",
-        accel: "3.82s",
-        design: "FINALS",
-        scrutineering: "PASSED",
-        brake: "VALID"
-      }
-    },
-    {
-      name: "FS_NETHERLANDS",
-      id: "FSN_25",
-      results: {
-        overall: "01/32",
-        bpp: "3RD",
-        skidpad: "4.92s",
-        endurance: "COMPLETED",
-        efficiency: "2ND"
+        design: "12TH/48",
+        note: "6TH IIT TO BUILD EV"
       }
     }
   ],
 
   highlights: [
-    "FASTEST LAP // ASSEN"
+    "FIRST EVER EV BUILD",
+    "TOP 15 IN DESIGN"
   ],
 
   milestones: [
-    "600V_LFP_BMS_INTEGRATION",
-    "DRIVERLESS_LOGIC_STABLE"
+    "FIRST_FULL_EV_CAR",
+    "EV_PLATFORM_ESTABLISHED"
   ]
 };

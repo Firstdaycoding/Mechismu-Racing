@@ -5,15 +5,13 @@ import "./Layout.css";
 
 export default function Layout({ children }) {
     const location = useLocation();
-    
-    // Standalone dashboard pages (No header / No footer)
-    const isDashboard = ["/sponsors", "/contact"].includes(location.pathname);
+
 
     return (
         <>
-            {!isDashboard && <Navbar />}
+            <Navbar />
             <main className="child">{children}</main>
-            {!isDashboard && <Footer />}
+            <Footer />
         </>
     );
 }

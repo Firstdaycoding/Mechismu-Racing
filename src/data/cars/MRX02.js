@@ -1,7 +1,7 @@
 export const MRX02 = {
     id: "mrx-02",
     name: "MRX02",
-    year: null, // not provided
+    year: 2019,
     tag: "COMBUSTION // MRX_EVOLUTION",
 
     stats: {

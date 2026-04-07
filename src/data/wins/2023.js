@@ -3,25 +3,23 @@ export const year2023 = {
 
   competitions: [
     {
-      name: "FS_BHARAT",
-      id: "FSB_23",
+      name: "PIEV_FORMULA_BHARAT",
+      id: "FB_EV_23",
       results: {
-        overall: "01/35",
-        design: "1ST",
-        endurance: "COMPLETED",
-        accel: "4.20s",
-        skidpad: "5.25s",
-        bpp: "1ST"
+        overall: "3RD",
+        fmea: "1ST",
+        procurement: "3RD",
+        design: "3RD"
       }
     }
   ],
 
   highlights: [
-    "NATIONAL CHAMPIONS // ELECTRIC CATEGORY"
+    "3RD OVERALL IN COMPETITION",
+    "1ST IN FMEA REPORT"
   ],
 
   milestones: [
-    "FIRST_FULL_EV_POWERTRAIN",
-    "CUSTOM_TELEMETRY_SUITE"
+    "STRONG_EV_PLATFORM_PROGRESS"
   ]
 };

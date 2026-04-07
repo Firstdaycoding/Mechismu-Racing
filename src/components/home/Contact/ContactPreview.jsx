@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SectionWrapper from '../common/SectionWrapper';
 import CTAButton from '../common/CTAButton';
 import './contact.css';
+import { LINKS } from '@/config/links';
 
 const CONTACT_INFO = [
   {
@@ -30,14 +31,27 @@ const CONTACT_INFO = [
   },
   {
     sysLabel: 'NET_LINK',
-    title: 'SOCIAL',
+    title: 'INSTAGRAM',
     info: '@mechismu_racing',
-    href: 'https://instagram.com/mechismu_racing',
+    href: LINKS.social.instagram,
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+      </svg>
+    ),
+  },
+  {
+    sysLabel: 'NET_LINK',
+    title: 'LINKEDIN',
+    info: 'Mechismu Racing',
+    href: LINKS.social.linkedin,
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
       </svg>
     ),
   },
@@ -73,24 +87,44 @@ export default function ContactPreview() {
       <div className="contact-split">
         <div className="contact-left fade-up">
           <div className="contact-info-list">
-            {CONTACT_INFO.map((card, i) => (
-              <a
-                key={i}
-                href={card.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-info-card"
-              >
-                <div className="contact-icon">{card.icon}</div>
-                <div>
-                  <div className="contact-card-title-row">
-                    <h4 className="contact-card-title">{card.title}</h4>
-                    <span className="contact-card-sys-label">{card.sysLabel}</span>
+            {CONTACT_INFO.map((card, i) => {
+              const content = (
+                <>
+                  <div className="contact-icon">{card.icon}</div>
+                  <div>
+                    <div className="contact-card-title-row">
+                      <h4 className="contact-card-title">{card.title}</h4>
+                      <span className="contact-card-sys-label">{card.sysLabel}</span>
+                    </div>
+                    <p className="contact-card-text">{card.info}</p>
                   </div>
-                  <p className="contact-card-text">{card.info}</p>
-                </div>
-              </a>
-            ))}
+                </>
+              );
+
+              if (!card.href) {
+                return (
+                  <span
+                    key={i}
+                    className="contact-info-card disabled-link"
+                    style={{ opacity: 0.5, cursor: 'not-allowed', pointerEvents: 'none' }}
+                  >
+                    {content}
+                  </span>
+                );
+              }
+
+              return (
+                <a
+                  key={i}
+                  href={card.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-info-card"
+                >
+                  {content}
+                </a>
+              );
+            })}
           </div>
 
           <div className="contact-global-status">

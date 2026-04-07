@@ -13,10 +13,11 @@ import { Link } from 'react-router-dom';
 // Internal
 import Logo from '@/assets/images/logo.png';
 import { InstagramIcon, LinkedInIcon, YouTubeIcon } from '@/assets/icons/SocialIcons.jsx';
+import { LINKS } from '@/config/links';
 import './Footer.css';
 // ===== COMPONENT =====
 export default function Footer() {
-  
+
   // ===== RENDER =====
   return (
     <footer>
@@ -25,8 +26,8 @@ export default function Footer() {
         <div className="footer-brand">
           <Link to="/" className="navlogo">
             {/* <div className="logo-icon">M</div> */}
-              <img src={
-                Logo} alt="MECHISMU Logo"/>
+            <img src={
+              Logo} alt="MECHISMU Logo" />
             <span className="logo-text">MECHISMU <span>RACING</span></span>
           </Link>
           <p className="footer-tagline">RACING IS RELIGION</p>
@@ -38,31 +39,45 @@ export default function Footer() {
 
         <div className="footer-links">
           <p className="footer-col-label">Navigate</p>
-          <Link to="/about">About</Link>
-          <Link to="/cars">Cars</Link>
-          <Link to="/team">Team</Link>
-          <Link to="/wins">Wins</Link>
-          <Link to="/sponsors">Sponsors</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to={LINKS.routes.about}>About</Link>
+          <Link to={LINKS.routes.cars}>Cars</Link>
+          <Link to={LINKS.routes.team}>Team</Link>
+          <Link to={LINKS.routes.wins}>Wins</Link>
+          <Link to={LINKS.routes.sponsors}>Sponsors</Link>
+          <Link to={LINKS.routes.contact}>Contact</Link>
         </div>
 
         <div className="footer-right">
           <p className="footer-col-label">Connect</p>
           <div className="footer-socials">
-            <a to="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-              <InstagramIcon />
-            </a>
-            <a to="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-              <LinkedInIcon />
-            </a>
-            <a to="https://youtube.com" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-              <YouTubeIcon />
-            </a>
+            {LINKS.social.instagram ? (
+              <a href={LINKS.social.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <InstagramIcon />
+              </a>
+            ) : (
+              <span className="disabled-link" style={{ opacity: 0.5, cursor: 'not-allowed', pointerEvents: 'none' }}><InstagramIcon /></span>
+            )}
+
+            {LINKS.social.linkedin ? (
+              <a href={LINKS.social.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <LinkedInIcon />
+              </a>
+            ) : (
+              <span className="disabled-link" style={{ opacity: 0.5, cursor: 'not-allowed', pointerEvents: 'none' }}><LinkedInIcon /></span>
+            )}
+
+            {LINKS.social.youtube ? (
+              <a href={LINKS.social.youtube} aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                <YouTubeIcon />
+              </a>
+            ) : (
+              <span className="disabled-link" style={{ opacity: 0.5, cursor: 'not-allowed', pointerEvents: 'none' }}><YouTubeIcon /></span>
+            )}
           </div>
           <div className="footer-contact-info">
-            <Link to="mailto:mechismu@iitism.ac.in" className="footer-email">
+            <a href="mailto:mechismu@iitism.ac.in" className="footer-email">
               mechismu@iitism.ac.in
-            </Link>
+            </a>
             <address className="footer-address">
               IIT (ISM) Dhanbad,<br />
               Sardar Patel Nagar,<br />
