@@ -4,7 +4,7 @@ import React, { useEffect, useState, Suspense } from "react";
 
 import Layout from "@/layout/Layout";
 
-import PageLoader from "@/components/ui/pageloader/PageLoader";
+import PageLoader from "@/components/ui/pageloader/PageLoader.jsx";
 
 import "@/App.css";
 
