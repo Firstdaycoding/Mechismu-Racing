@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import '@/components/ui/pageloader/PageLoader.css';
+import "./PageLoader.css";
 
 const STATUS_MESSAGES = [
   'INITIALIZING SYSTEMS',
@@ -26,22 +26,22 @@ export default function PageLoader() {
   const currentMessage = STATUS_MESSAGES[messageIndex];
 
   return (
-    <motion.div 
+    <motion.div
       className="page-loader"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, filter: 'blur(10px)', scale: 1.05 }}
       transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
     >
       {/* Subtle car-inspired motion streak (simulating dynamic pass or headlight sweep) */}
-      <motion.div 
+      <motion.div
         className="page-loader__streak"
         initial={{ x: '-100vw' }}
         animate={{ x: '100vw' }}
         transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
       />
-      
+
       <div className="page-loader__content">
-        <motion.h1 
+        <motion.h1
           className="page-loader__title"
           initial={{ clipPath: 'inset(0 100% 0 0)' }}
           animate={{ clipPath: 'inset(0 0% 0 0)' }}
@@ -49,7 +49,7 @@ export default function PageLoader() {
         >
           MECHISMU
         </motion.h1>
-        
+
         <div className="page-loader__status-container">
           <AnimatePresence mode="wait">
             <motion.p
@@ -65,7 +65,7 @@ export default function PageLoader() {
           </AnimatePresence>
 
           {/* Signature blinking cursor */}
-          <motion.span 
+          <motion.span
             className="page-loader__cursor"
             animate={{ opacity: [1, 0, 1] }}
             transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
