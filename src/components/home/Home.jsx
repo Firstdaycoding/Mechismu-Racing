@@ -2,13 +2,13 @@
 import '@/components/home/home.css';
 
 // ===== HOME SECTIONS =====
-import HeroSection from '@/components/home/hero/HeroSection';
-import AboutPreview from '@/components/home/about/AboutPreview';
-import CarsPreview from '@/components/home/cars/CarsPreview';
-import TeamPreview from '@/components/home/team/TeamPreview';
-import Achievements from '@/components/home/achievements/Achievements';
-import SponsorsPreview from '@/components/home/sponsors/SponsorsPreview';
-import ContactPreview from '@/components/home/contact/ContactPreview';
+import HeroSection from "@/components/home/hero/HeroSection.jsx";
+import AboutPreview from "@/components/home/about/AboutPreview.jsx";
+import CarsPreview from "@/components/home/cars/CarsPreview.jsx";
+import TeamPreview from "@/components/home/team/TeamPreview.jsx";
+import Achievements from "@/components/home/achievements/Achievements.jsx";
+import SponsorsPreview from "@/components/home/sponsors/SponsorsPreview.jsx";
+import ContactPreview from "@/components/home/contact/ContactPreview.jsx";
 
 export default function Home() {
   return (
