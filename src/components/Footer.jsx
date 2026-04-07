@@ -11,10 +11,10 @@
 import { Link } from 'react-router-dom';
 
 // Internal
-import Logo from '@/assets/images/logo.png';
-import { InstagramIcon, LinkedInIcon, YouTubeIcon } from '@/assets/icons/SocialIcons';
-import { LINKS } from '@/config/links';
-import '@/components/Footer.css';
+import Logo from '../assets/images/logo.png';
+import { InstagramIcon, LinkedInIcon, YouTubeIcon } from '../assets/icons/SocialIcons';
+import { LINKS } from '../config/links';
+import './Footer.css';
 // ===== COMPONENT =====
 export default function Footer() {
 

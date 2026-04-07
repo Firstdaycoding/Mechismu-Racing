@@ -1,7 +1,7 @@
 
 import { motion } from 'motion/react';
 import { Zap, Cpu, Settings, Wrench, Search } from 'lucide-react';
-import '@/components/domains/Domains.css';
+import './Domains.css';
 
 const domains = [
   { title: "Powertrain", desc: "Motor control & battery systems.", icon: <Zap /> },

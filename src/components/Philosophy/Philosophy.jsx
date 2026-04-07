@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
-import '@/components/philosophy/Philosophy.css';
-import logoImg from '@/assets/images/team_photo.png';
+import './Philosophy.css';
+import logoImg from '../../assets/images/team_photo.png';
 
 export default function Philosophy() {
   const imgRef = useRef(null);

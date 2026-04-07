@@ -1,5 +1,5 @@
 
-import { CarsPage } from '@/features/cars';
+import { CarsPage } from '../features/cars';
 
 export default function Cars() {
   return <CarsPage />;

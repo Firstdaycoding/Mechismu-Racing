@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useInView } from 'motion/react';
-import '@/components/timeline/Timeline.css';
+import './Timeline.css';
 
 function TimelineNode({ data }) {
   const nodeRef = useRef(null);
