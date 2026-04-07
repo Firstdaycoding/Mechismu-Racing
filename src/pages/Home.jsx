@@ -1,9 +1,10 @@
-import Footer from '../components/Footer.jsx'
+/**
+ * File: pages/Home.jsx
+ * Purpose: Home page route — delegates to modular home components
+ */
 
-export default function Home() {
-    return (
-        <>
-            <Footer />
-        </>
-    )
+import Home from '../components/home/Home';
+
+export default function HomePage() {
+  return <Home />;
 }

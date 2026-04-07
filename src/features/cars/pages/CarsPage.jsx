@@ -30,6 +30,58 @@ const CarsPage = () => {
     }
   }, [activeCar]);
 
+  // Clean data function to remove null, undefined, and empty string fields
+  const getCleanedData = (car) => {
+    if (!car) return null;
+
+    // Clean stats: keep only valid scalar values
+    const cleanedStats = car.stats
+      ? Object.fromEntries(
+          Object.entries(car.stats).filter(
+            ([_, v]) => v !== null && v !== undefined && v !== ''
+          )
+        )
+      : null;
+
+    // Clean specs: keep only arrays with items having both label and value
+    const cleanedSpecs = car.specs ? {} : null;
+    if (car.specs) {
+      Object.keys(car.specs).forEach((group) => {
+        const validItems = car.specs[group]?.filter(
+          (item) => item?.label && item?.value
+        );
+        if (validItems && validItems.length > 0) {
+          cleanedSpecs[group] = validItems;
+        }
+      });
+    }
+
+    // Clean domains: keep only domains with valid text
+    const cleanedDomains = car.domains ? {} : null;
+    if (car.domains) {
+      Object.keys(car.domains).forEach((key) => {
+        if (car.domains[key]?.text && car.domains[key].text.trim() !== '') {
+          cleanedDomains[key] = car.domains[key];
+        }
+      });
+    }
+
+    // Clean images: filter out empty elements in gallery
+    const cleanedImages = { ...car.images };
+    if (car.images?.gallery) {
+      cleanedImages.gallery = car.images.gallery.filter(Boolean);
+    }
+
+    return {
+      stats: Object.keys(cleanedStats || {}).length > 0 ? cleanedStats : null,
+      specs: Object.keys(cleanedSpecs || {}).length > 0 ? cleanedSpecs : null,
+      domains: Object.keys(cleanedDomains || {}).length > 0 ? cleanedDomains : null,
+      images: cleanedImages,
+    };
+  };
+
+  const cleanedCar = getCleanedData(activeCar);
+
   return (
     <div className="cars-page">
       {/* Background Elements */}
@@ -53,20 +105,21 @@ const CarsPage = () => {
           <div ref={contentRef}>
             <CarHero car={activeCar} />
             
-            <CarStats stats={activeCar.stats} />
+            {cleanedCar.stats && <CarStats stats={cleanedCar.stats} />}
             
-            <CarOverview overview={activeCar.overview} />
+            {activeCar?.overview && <CarOverview overview={activeCar.overview} />}
             
-            <CarDomains domains={activeCar.domains} />
+            {cleanedCar.domains && <CarDomains domains={cleanedCar.domains} />}
             
-            <CarSpecs specs={activeCar.specs} />
+            {cleanedCar.specs && <CarSpecs specs={cleanedCar.specs} />}
             
-            <CarGallery images={activeCar.images} />
+            {cleanedCar.images && <CarGallery images={cleanedCar.images} />}
             
-            <CarTimeline timeline={activeCar.timeline} />
+            {activeCar?.timeline && activeCar.timeline.length > 0 && <CarTimeline timeline={activeCar.timeline} />}
           </div>
         </Suspense>
       </div>
+
     </div>
   );
 }
